@@ -27,7 +27,7 @@ class CubeMover:
                  step_size_y: int = 1, # vertical step size
                  color_foreground: str = "bada55", # target object color
                  color_background: str = "000000", # background color of the canvas
-                 delay: int = 1 # delay in seconds between updates
+                 delay: float = 1.0 # delay in seconds between updates
                  ):
         assert screen_height > (object_height + step_size_y), "Object does not fit into canvas"
         assert screen_width > (object_width + step_size_x), "Object does not fit into canvas"
@@ -140,7 +140,7 @@ class CubeMover:
 
         total_command = removal_command + "\n" + insert_command + "\n"
 
-        print(total_command)
+        # print(total_command)
         self.socket.sendall(bytes(total_command, "UTF-8"))
 
 
@@ -220,10 +220,10 @@ if __name__ == "__main__":
                         default="000000")
     parser.add_argument(dest='delay',
                         metavar='d',
-                        type=int,
+                        type=float,
                         help="Delay in seconds between object steps",
                         nargs="?",
-                        default=2)
+                        default=0.01)
 
     args = parser.parse_args([])
 
@@ -243,8 +243,9 @@ if __name__ == "__main__":
         delay=args.delay)
 
     while True:
-        cm.draw_ascii()
-        if cm.online:
+        if not cm.online:
+            cm.draw_ascii()
+        else:
             cm.draw_canvas()
         cm.clear()
         cm.step()
