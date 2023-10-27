@@ -147,13 +147,13 @@ class CubeMover:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Throw a simple DVD bouncer on a Pixelflut screen")
     parser.add_argument(dest='host',
-                        metavar='h',
+                        metavar='host',
                         type=str,
                         help="Host of the Pixelflut server",
                         nargs="?",
                         default="127.0.0.1")
     parser.add_argument(dest='port',
-                        metavar='p',
+                        metavar='port',
                         type=int,
                         help="Port of the Pixelflut server",
                         nargs="?",
