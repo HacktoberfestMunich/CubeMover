@@ -225,7 +225,7 @@ if __name__ == "__main__":
                         nargs="?",
                         default=0.01)
 
-    args = parser.parse_args([])
+    args = parser.parse_args()
 
     cm = CubeMover(
         host=args.host,
