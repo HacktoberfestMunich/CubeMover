@@ -229,11 +229,8 @@ if __name__ == "__main__":
         color_background=args.color_background,
         delay=args.delay)
 
-    while True:
-        if not cm.online:
-            cm.draw_ascii()
-        else:
-            cm.draw_canvas()
+    while cm.online:
+        cm.draw_canvas()
         cm.clear()
         cm.step()
         cm.paint()
