@@ -146,83 +146,70 @@ class CubeMover:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Throw a simple DVD bouncer on a Pixelflut screen")
-    parser.add_argument(dest='host',
-                        metavar='host',
+    parser.add_argument("--host",
+                        dest='host',
                         type=str,
                         help="Host of the Pixelflut server",
-                        nargs="?",
                         default="127.0.0.1")
-    parser.add_argument(dest='port',
-                        metavar='port',
+    parser.add_argument("--port",
+                        dest='port',
                         type=int,
                         help="Port of the Pixelflut server",
-                        nargs="?",
                         default=1234)
-    parser.add_argument(dest='screen_origin_x',
-                        metavar='sox',
+    parser.add_argument("--sox",
+                        dest='screen_origin_x',
                         type=int,
                         help="Horizontal origin coordinate for reference within the Pixelflut canvas",
-                        nargs="?",
                         default=0)
-    parser.add_argument(dest='screen_origin_y',
-                        metavar='soy',
+    parser.add_argument("--soy",
+                        dest='screen_origin_y',
                         type=int,
                         help="Vertical origin coordinate for reference within the Pixelflut canvas",
-                        nargs="?",
                         default=0)
-    parser.add_argument(dest='screen_width',
-                        metavar='sw',
+    parser.add_argument("--sw",
+                        dest='screen_width',
                         type=int,
                         help="Width of the screen area where the object may be drawn",
-                        nargs="?",
-                        default=400)
-    parser.add_argument(dest='screen_height',
-                        metavar='sh',
+                        default=10)
+    parser.add_argument("--sh",
+                        dest='screen_height',
                         type=int,
                         help="Height of the screen area where the object may be drawn",
-                        nargs="?",
-                        default=200)
-    parser.add_argument(dest='object_width',
-                        metavar='ow',
+                        default=9)
+    parser.add_argument("--ow",
+                        dest='object_width',
                         type=int,
                         help="Width of the object",
-                        nargs="?",
-                        default=15)
-    parser.add_argument(dest='object_height',
-                        metavar='oh',
+                        default=3)
+    parser.add_argument("--oh",
+                        dest='object_height',
                         type=int,
                         help="Height of the object",
-                        nargs="?",
-                        default=9)
-    parser.add_argument(dest='step_size_x',
-                        metavar='dx',
+                        default=2)
+    parser.add_argument("--dx",
+                        dest='step_size_x',
                         type=int,
                         help="Horizontal step size",
-                        nargs="?",
                         default=1)
-    parser.add_argument(dest='step_size_y',
-                        metavar='dy',
+    parser.add_argument("--dy",
+                        dest='step_size_y',
                         type=int,
                         help="Vertical step size",
-                        nargs="?",
                         default=1)
-    parser.add_argument(dest='color_foreground',
-                        metavar='cf',
+    parser.add_argument("--cf",
+                        dest='color_foreground',
                         type=str,
                         help="Foreground color of the object",
-                        nargs="?",
                         default="bada55")
-    parser.add_argument(dest='color_background',
-                        metavar='cb',
+    parser.add_argument("--cb",
+                        dest='color_background',
                         type=str,
                         help="Background color to be restored on step",
-                        nargs="?",
                         default="000000")
-    parser.add_argument(dest='delay',
-                        metavar='d',
+    parser.add_argument("--d",
+                        dest='delay',
                         type=float,
                         help="Delay in seconds between object steps",
-                        nargs="?",
                         default=0.01)
 
     args = parser.parse_args()
